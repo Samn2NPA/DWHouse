@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DentalWarehouse</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+
+    <!-- icon fa (facebook, linkIn) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+
+        .row {
+            margin: 0px;
+        }
+
+        #Register .row {
+            text-align: center;
+        }
+
+        #Register .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #Footer .widget_mfn_menu ul li a {
+            font-size: small;
+            color: #404040;
+            display: block; 
+            padding: 7px 10px;
+        }
+
+            #Footer .widget_mfn_menu ul li a:hover {
+                text-decoration: none;
+                color: white;
+                background-color: #0070c0;
+            }
+
+        #Footer .widget_mfn_menu ul li {
+            background: rgba(0,0,0,.1);
+            margin: 5px 0;
+        }
+
+            /*#Footer .widget_mfn_menu ul li:hover {
+                background-color: #0070c0;
+                color: white;
+            }*/
+
+        #Register {
+            background-position: center top;
+            background-repeat: no-repeat;
+            position: relative;
+            background-color: #46c2d2;
+        }
+
+        #Register .widgets_wrapper .container{
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="header-classic">
+
+    <!-- above navBar -->
+    <div id="Action_bar">
+        <div class="container">
+            <div class="column one">
+                <ul class="contact_details" id="horizontal-list">
+                    <li class="slogan"> Get in touch: </li>
+                    <li class="phone">
+                        <i class="	glyphicon glyphicon-earphone"></i>
+                        <a href="https://www.dentalwarehouse.vn/contact/">0909 192 398</a>
+                    </li>
+                    <li class="mail">
+                        <i class="glyphicon glyphicon-envelope"></i>
+                        <a href="https://www.dentalwarehouse.vn/contact/">2npa2812@gmail.com</a>
+                    </li>
+                </ul>
+
+                <nav id="social-menu" class="secondary-menu">
+                    <ul id="menu-secondary-menu" class="social-menu">
+                        <li><a href="https://www.dentalwarehouse.vn/articles/">News</a></li>
+                        <li><a href="https://www.dentalwarehouse.vn/articles/">About</a></li>
+                        <li>
+                            <a>
+                                <i class="fa fa-facebook" title="facebook" style="color:#0070c0"></i>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a>
+                                <i class="fa fa-linkedin" title="LinkedIn" style="color:#0070c0"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar-->
+    <div id="Top_bar">
+        <div class="container">
+            <div class="column one">
+                <div class="top_bar_left clearfix">
+
+                    <div class="container">
+                        <div class=" navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a asp-area="" asp-controller="Home" asp-action="Index">
+                                <img id="logo" src="~/images/logo2.png" alt="logo" class="img-thumbnail logo" />
+                            </a>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                                <li><a asp-area="" asp-controller="Home" asp-action="Shop">Shop</a></li>
+                                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Education</a></li>
+                                <li><a asp-area="" asp-controller="Home" asp-action="Log In">Log In</a></li>
+                                <li><a asp-area="" asp-controller="Home" asp-action="FAQs">FAQs</a></li>
+                                <li>
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-shopping-cart" title="Cart" style="font-size:150%"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                       
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- implement animation of NavBar when scrolling -->
+    <script>
+        window.onscroll = function () { myFunction() };
+
+        var navbar = document.getElementById("Top_bar");
+        var logo = document.getElementById("logo");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("is-sticky");
+
+            } else {
+                navbar.classList.remove("is-sticky");
+            }
+        }
+    </script>
+
+    <div class="container-fluid body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    <!-- Register for Mail promotion -->
+    <div id="Register">
+        <div class="widgets_wrapper" style="padding: 20px 0 20px;">
+            <div class="container" style="background-color: #46c2d2;">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h1 style="color: white;"> Need some help? </h1>
+                    </div>
+                    <div class="col-sm-4" style="margin-top: 20px;">
+                        <form class="row">
+                            <div class="col-sm-4 " style="display: inline;">
+                                <input type="text" class="form-control" id="inputSearch" placeholder="Email">
+                                <button type="button" class="btn btn-danger">Text me</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="col-sm-4">
+                        <p style="color: white; margin-top: 20px; padding: 0px;">
+                            Our sales agents and call centre are eager
+                            <br />
+                            to assist you with any enquiries you may have
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+
+    <footer id="Footer">
+
+        <div class="widgets_wrapper" style="padding: 40px 0 10px;">
+
+            @* Menu in Bootstrap *@
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <aside class="widget widget_mfn_menu">
+                            <h4>
+                                Recent Posts
+                            </h4>
+
+                            <div>
+                                <ul style="list-style-type: none;">
+                                    <li>
+                                        <a>
+                                            <img style="height: 30px; width: 20px;" src="~/images/logo2.png" />
+                                            <h6> Title of post </h6>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <img style="height: 30px; width: 20px;" src="~/images/logo2.png" />
+                                            <h6> Title of post </h6>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+
+                    </div>
+
+                    <div class="col-sm-3">
+                        <aside class="widget widget_mfn_menu">
+                            <h4>
+                                Menu
+                            </h4>
+
+                            <div>
+                                <ul style="list-style-type: none;">
+                                    <li> <a style="display: block; padding: 7px 10px;">  Home </a> </li>
+                                    <li> <a> Shop </a> </li>
+                                    <li> <a>Book</a> </li>
+                                    <li> <a>Course</a> </li>
+                                </ul>
+                            </div>
+                        </aside>
+
+                    </div>
+
+                    <div class="col-sm-3">
+                        <aside class="widget widget_mfn_menu">
+                            <h4>
+                                Useful links
+                            </h4>
+
+                            <div>
+                                <ul style="list-style-type: none;">
+                                    <li> <a> About </a> </li>
+                                    <li><a> News </a> </li>
+                                    <li> <a> Events </a> </li>
+                                    <li> <a> Contact </a> </li>
+                                    <li> <a> Feedback </a> </li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <aside class="widget widget_mfn_menu">
+                            <h4>
+                                Store
+                            </h4>
+
+                            <div>
+                                <ul style="list-style-type: none;">
+                                    <li> <a> Terms of Use </a> </li>
+                                    <li><a> Privacy Policy </a> </li>
+                                    <li> <a> Terms and Conditions of Sale </a> </li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+
+
+            @* Copy right *@
+            <div class="footer_copy">
+                <div class="container-fluid">
+                    <div class="column one">
+                        <p style="margin:10px 0 0;">&copy; 2018 - The Dental Warehouse</p>
+                        <ul class="social" style="padding-top: 10px;">
+                            <li>
+                                <a>
+                                    <i class="fa fa-facebook" title="facebook" style="color:#ffffff"></i>
+                                </a>
+
+                            </li>
+                            <li>
+                                <a>
+                                    <i class="fa fa-linkedin" title="LinkedIn" style="color:#ffffff"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </footer>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
